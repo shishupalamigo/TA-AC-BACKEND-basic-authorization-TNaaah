@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css">
+
+  </head>
+  <body class="background-gray m-10">
+    <header class="bg-blue-900 w-100 flex justify-between items-center p-5 rounded mb-10" >
+      <div class="flex container jsb">
+        <img class="logo" src="/images/logo.jpg" alt="logo" />
+        <div class="flex">
+          <a href="/client/product/cart" class="btn btn-ter">View cart</a>
+          <a href="/users/logout" class="btn btn-ter">Logout</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="sec-padding">
+        <div class="container hero-sec">
+          <h2 class="text-center">
+            All Products
+          </h2>
+        </div>
+      </section>
+      <section class="sec-padding flex center">
+        <div class="container flex background-gray wrap">
+          <% products.forEach(ele=>{ %>
+          <article class="client-item-card flex-30">
+            <h3 class="text-center"><%= ele.name %></h3>
+            <div class="img-div">
+              <img class="felxi-img" src="<%= ele.imageUrl  %>" alt="item img" />
+            </div>
+            <div class="flex jsb flex-col">
+              <h4 class="mb-5">
+                Price :- <span class="color-sec">Rs.<%= ele.price %> </span>
+              </h4>
+              <h4 class="mb-5">
+                Remaining :-
+                <span class="color-sec"><%= ele.quantity %> </span>
+              </h4>
+            </div>
+            <div class="flex center-center">
+              <a href="/client/product/<%= ele.id  %>/details" class="btn btn-pri"
+                >Details</a
+              >
+            </div>
+          </article>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
