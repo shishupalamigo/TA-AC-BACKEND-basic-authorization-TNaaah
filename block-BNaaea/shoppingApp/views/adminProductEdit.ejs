@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body class="m-10">
+    <header class="bg-blue-900 w-100 flex justify-between items-center p-5 rounded mb-10">
+      <div class="flex container jsb">
+        <img class="logo" src="/images/logo.jpg" alt="logo" />
+        <div class="flex">
+          <a href="/admin/product/new" class="btn btn-ter">Add new product</a>
+          <a href="/admin/product/list" class="btn btn-ter">product list</a>
+          <a href="/admin/product/details/<%= product.id  %>" class="btn btn-ter"
+            >Back</a
+          >
+          <a href="/users/logout" class="btn btn-ter">Logout</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="sec-padding">
+        <div class="container hero-sec">
+          <h2 class="text-center">
+            <span class="color-sec">Admin</span> product Edit page
+          </h2>
+        </div>
+      </section>
+      <section class="sec-padding flex center">
+        <div class="container">
+          <form action="/admin/product/<%= product.id  %>/edit" method="POST">
+            <h3 class="text-center text-2xl mb-10">Edit Product Details</h3>
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              value="<%= product.name %>"
+              class="p-2 mb-5"
+            />
+
+            <input
+              type="number"
+              placeholder="quantity"
+              name="quantity"
+              value="<%= product.quantity %>"
+              class="p-2 mb-5"
+            />
+            <input
+              type="number"
+              placeholder="price"
+              name="price"
+              value="<%= product.price %>"
+              class="p-2 mb-5"
+            />
+            <input 
+              type="text" 
+              placeholder="Category" 
+              name="category" 
+              class="p-2" 
+              value="<%= product.category %>"
+            />
+
+
+            <input
+              type="text"
+              placeholder="image url"
+              name="image"
+              value="<%= product.imageUrl %>"
+              class="p-2 mb-5"
+            />
+            <div class="flex justify-center">
+                <button class="btn btn-pri" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

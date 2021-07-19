@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <script
+      src="https://kit.fontawesome.com/7c7efbb78c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css">
+
+  </head>
+  <body class="m-10">
+    <header class="bg-blue-900 w-100 flex justify-between items-center p-5 rounded mb-10" >
+      <div class="flex container jsb">
+        <img class="logo" src="/images/logo.jpg" alt="logo" />
+        <div class="flex">
+          <a href="/client/product/list" class="btn btn-ter">Product list</a>
+          <a href="/client/product/cart" class="btn btn-ter">View cart</a>
+          <a href="/users/logout" class="btn btn-ter">Logout</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="sec-padding">
+        <div class="container hero-sec">
+          <h2 class="text-center">
+             Product details
+          </h2>
+        </div>
+      </section>
+      <section class="sec-padding flex center">
+        <div class="container">
+          <article class="product-details-card flex justify-center">
+            <div class="img-div w-3/6 mr-10">
+              <img class="flexi-img" src="<%= product.imageUrl %>" alt="product image" />
+            </div>
+            <div class="flex flex-col items-start ml-10">
+                <h2 class="text-center underline mb-10"><%= product.name %></h2>
+                <h4 class="text-center mb-5">
+                    Quantity remaining:-
+                    <span class="color-pri"><%= product.quantity %></span>
+                  </h4>
+                  <h4 class="text-center mb-5">
+                    Price :- <span class="color-pri"><%= product.price %></span>
+                  </h4>
+                  <h4 class="text-center mb-5">
+                    Likes :- <span class="color-pri"><%= product.likes %></span>
+                  </h4>
+                  <div class="btn-div mb-10">
+                    <a href="/client/product/<%= product.id  %>/like" class="color-pri"
+                      ><i class="fas fa-thumbs-up"></i
+                    ></a>
+                    <a href="/client/product/<%= product.id  %>/dislike" class="color-sec"
+                      ><i class="fas fa-thumbs-down"></i
+                    ></a>
+                  </div>
+                  <div class="flex center-center">
+                    <a
+                      href="/client/product/<%= product.id %>/addToCart"
+                      class="btn btn-pri"
+                      >Add to cart</a
+                    >
+                  </div>
+            </div>
+
+
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

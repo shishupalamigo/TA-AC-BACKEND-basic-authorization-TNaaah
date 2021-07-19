@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    
+  </head>
+  <body class="m-10">
+    <header class="bg-blue-900 w-100 flex justify-between items-center p-5 rounded mb-10">
+      <div class="flex container jsb">
+        <img class="logo" src="/images/logo.jpg" alt="logo" />
+        <div class="flex">
+          <a href="/admin/product/new" class="btn btn-ter">Add new product</a>
+          <a href="/admin/product/list" class="btn btn-ter">Product list</a>
+
+          <a href="/users/logout" class="btn btn-ter">Logout</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="sec-padding">
+        <div class="container hero-sec">
+          <h2 class="text-center">
+            <span class="color-sec">Admin</span> Product details page
+          </h2>
+        </div>
+      </section>
+      <section class="sec-padding flex center">
+        <div class="container">
+          <article class="product-details-card flex justify-center">
+            <div class="img-div w-2/6 mr-10">
+              <img class="flexi-img" src="<%= product.imageUrl %>" alt="product image" />
+            </div>
+            <div class="ml-20 flex flex-col justify-center items-start">
+            <h2 class="text-center underline text-2xl font-bold mb-5"><%= product.name %></h2>
+                <h4 class="text-center mb-5">
+                    Quantity remaining:-
+                    <span class="color-pri"><%= product.quantity %></span>
+                  </h4>
+                  <h4 class="text-center mb-5">
+                    Price :- <span class="color-pri"><%= product.price %></span>
+                  </h4>
+                  <h4 class="text-center mb-5">
+                    Likes :- <span class="color-pri">
+                        <%= product.likes %>
+                    </span>
+                  </h4>
+            </div>
+          </article>
+          <div class="btn-div flex justify-center mt-10">
+            <a href="/admin/product/<%= product.id  %>/edit" class="btn btn-pri mr-5"
+              >Edit</a
+            >
+            <a href="/admin/product/<%= product.id  %>/delete" class="btn btn-sec"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
