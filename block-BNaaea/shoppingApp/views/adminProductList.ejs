@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  </head>
+  <body class="m-10">
+    <header class="bg-blue-900 w-100 flex justify-between items-center p-5 rounded mb-10" >
+      <div class="flex container jsb">
+        <img class="logo" src="/images/logo.jpg" alt="logo" />
+        <div class="flex">
+          <a href="/admin/product/new" class="btn btn-ter">Add new product</a>
+          <a href="/users/logout" class="btn btn-ter">Logout</a>
+        </div>
+      </div>
+    </header>
+    <div class="flex">
+      <aside class="flex flex-25 m-20">
+        <section class="sec-padding flex">
+          <div class="flex flex-col tags-div">
+          <h2 class="text-center">Categories</h2>
+          <a href="/admin/product/list" class="btn btn-sec">All</a>
+            <% arr.forEach(ele=>{ %>
+            <a href="/admin/product/list/<%=ele  %>" class="btn btn-ter">
+               <%= ele%>
+            </a>
+            <% }) %>
+          </div>
+        </section>
+      </aside>
+    <main class="">
+      <section class="sec-padding">
+        <div class="container hero-sec">
+          <h2 class="text-center">
+            <span class="color-sec">Products</span> list 
+          </h2>
+        </div>
+      </section>
+      <section class="sec-padding flex center">
+        <div class="container">
+          <% products.forEach(ele=>{ %>
+          <article class="item-card flex jsb aic">
+            <div class="img-div">
+              <img class="felxi-img" src="<%= ele.imageUrl  %>" alt="item img" />
+            </div>
+            <h3><%= ele.name %></h3>
+            <a href="/admin/product/details/<%= ele.id  %>" class="btn btn-pri"
+              >Details</a
+            >
+          </article>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+  </div>
+  </body>
+</html>

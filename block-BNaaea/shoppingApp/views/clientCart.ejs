@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Cart</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  </head>
+  <body class="m-10">
+    <header class="bg-blue-900 w-100 flex justify-between items-center p-5 rounded mb-10">
+      <div class="flex container jsb">
+        <img class="logo" src="/images/logo.jpg" alt="logo" />
+        <div class="flex">
+          <a href="/client/product/list" class="btn btn-ter">Keep Shopping</a>
+          <a href="/home" class="btn btn-ter"> Home</a>
+          <a href="/users/logout" class="btn btn-ter">Logout</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="sec-padding">
+        <div class="container hero-sec">
+          <h2 class="text-center"><span class="color-sec">User</span> cart</h2>
+        </div>
+      </section>
+      <section class="sec-padding flex justify-center w-100">
+        <div class="container flex justify-center">
+          <div>
+            <% user.cart.forEach(ele=>{ %>
+            <article class="cart-card flex jsb">
+              <h3><%= ele.name %></h3>
+             
+              <div class="btn-div">
+                <span class="color-pri">Rs. <%= ele.price %> </span>
+                <a href="/client/product/<%= ele.id  %>/removeFromCart" class="btn btn-sec">remove It</a>
+              </div>
+            </article>
+            <% }) %>
+            <article class="cart-card flex jsb">
+                <article class="cart-card flex jsb">
+                    <h3>Total</h3>
+                   
+                    <div class="btn-div">
+                        <span class="color-pri">Rs. <%= total  %>  </span>
+                      <a href="#" class="btn btn-pri">Checkout</a>
+                    </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </body>
+</html>
