@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+<main>
+  <section class="sec-padding hero-sec">
+    <h1 class="text-center">
+      Welcome <span class="color-sec"><%= user.name %> </span> to podcast list
+      page
+    </h1>
+  </section>
+  <section class="sec-padding">
+    <h2 class="text-center">All Podcasts</h2>
+    <div class="flex center sec-padding btn-div">
+      <a href="/admin/listOfPodcast" class="btn btn-ter">All Podcasts</a>
+      <a href="/admin/listOfPodcast/myOwn" class="btn btn-ter">My Podcasts</a>
+      <a href="/admin/listOfPodcast/verification" class="btn btn-ter"
+        >For Verification</a
+      >
+    </div>
+    <div class="flex center sec-padding">
+      <div class="podcast-div">
+        <% podcasts.forEach(podcast=>{ %>
+        <article class="podcast flex jsb card">
+          <div class="img-div">
+            <img
+              class="flexi-img"
+              src="<%= podcast.image  %>"
+              alt="podcast img"
+            />
+          </div>
+          <div class="flex center">
+            <h4>Title:- <span class="color-pri"> <%= podcast.name %></span></h4>
+          </div>
+          <div class="flex center">
+            <a href="/admin/podcast/<%= podcast.id  %>" class="btn btn-ter"
+              >More Details</a
+            >
+          </div>
+          <div class="verified-div">
+            <h3>Verified:-<%= podcast.verified %></h3>
+          </div>
+        </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
