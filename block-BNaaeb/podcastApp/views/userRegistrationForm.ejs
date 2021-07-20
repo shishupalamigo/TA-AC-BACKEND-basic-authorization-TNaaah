@@ -1,0 +1,29 @@
+<% include partials/header %>
+
+    <main class="m-20 min-screen-h flex justify-center items-center" >
+        <section class="">
+            <h2 class="text-xl text-green-600 font-bold text-center mb-5">Registration</h2>
+            <form action="/users/register" method="POST" class="border-2 p-5 flex flex-col">
+                <% if(error) { %>
+                    <p class="text-red-500 "><%= error %></p>
+                <% } %>
+                <input type="text" name="name" placeholder="Enter your Name" class="p-2 border border-grey-500 mb-5">
+                <input type="email" name="email" placeholder="Email" class="p-2 border border-grey-500 mb-5">
+                <label for="">Choose Account type</label>
+                <fieldset class="flex flex-wrap justify-between">
+                  <input type="radio" id="free" name="userType" value="free" />
+                  <label for="free" class="text-sm">Free</label><br />
+                  <input type="radio" id="vip" name="userType" value="vip" />
+                  <label for="vip" class="text-sm">VIP</label><br />
+                  <input type="radio" id="premium" name="userType" value="premium" />
+                  <label for="premium" class="text-sm">PREMIUM</label>
+                  <input type="radio" id="admin" name="userType" value="admin" />
+                  <label for="admin" class="text-sm">Admin</label>
+                </fieldset>
+                <input type="password" name="password" placeholder="Password" class="p-2 border border-grey-500 mb-5">
+                <button type="submit" class="px-3 py-2 bg-green-600 hover-bg-geen-900 text-white font-bold">Register</button>
+            </form>
+        </section>
+    </main>
+
+<% include partials/footer %>
